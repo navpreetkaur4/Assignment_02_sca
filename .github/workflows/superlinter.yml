@@ -5,12 +5,14 @@ on:
   pull_request:
 
 jobs:
-  lint-code:
+  run-linters:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Run Super-Linter
         uses: github/super-linter@v5
